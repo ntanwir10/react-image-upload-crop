@@ -4,6 +4,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `To run the application, follow below steps`
+
+# Step 1: install node.js
+
+# Step 2: run npm install
+
+# Step 3: npm start. This will start the application in dev mode and open [http://localhost:3000](http://localhost:3000) in the browser.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
