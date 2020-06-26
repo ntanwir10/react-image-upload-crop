@@ -1,7 +1,8 @@
 import React from "react";
+import ImageUpload from "../ImageUpload/ImageUpload";
 
 const Home = () => {
-  return <p>image upload</p>;
+  return <ImageUpload />;
 };
 
 export default Home;

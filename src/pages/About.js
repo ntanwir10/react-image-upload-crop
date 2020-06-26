@@ -6,10 +6,11 @@ const About = () => {
   return (
     <Fragment>
       <Jumbotron>
-        <h1>About the application</h1>
+        <h5>About the application</h5>
         <p>This is an image upload and cropping tool.</p>
-
-        <p> Things to be done: </p>
+      </Jumbotron>
+      <Jumbotron>
+        <h5> Things to be done: </h5>
         <ul>
           <li>A webpage where the user can upload an image </li>
           <li>Each image has to be exactly 1024 x 1024. </li>
@@ -17,9 +18,11 @@ const About = () => {
           <li>
             Each image has to be converted into four different sizes.
             <li>
-              horizontal : 755 x 450 vertical : 365 x 450 horizontal small : 365
-              x 212 gallery : 380 x 380 Images should not be stretched, they
-              should be cropped.
+              <li>horizontal : 755 x 450</li>
+              <li>vertical : 365 x 450</li>
+              <li>horizontal small : 365x 212</li>
+              <li>gallery : 380 x 380</li>
+              Images should not be stretched, they should be cropped.
             </li>
           </li>
           <li> Save all four of these images locally on the server </li>
