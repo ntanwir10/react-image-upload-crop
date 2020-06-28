@@ -90,7 +90,11 @@ const ImageUpload = () => {
             <div>
               <Alert variant="success">
                 Uploaded image url:
-                <Alert.Link href={imgAsUrl.imgUrl}>
+                <Alert.Link
+                  href={imgAsUrl.imgUrl}
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
                   {" "}
                   {imgAsUrl.imgUrl}
                 </Alert.Link>
