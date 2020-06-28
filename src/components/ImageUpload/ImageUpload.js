@@ -8,6 +8,7 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Alert from "react-bootstrap/Alert";
 
 import "../ImageUpload/ImageUpload.css";
 
@@ -60,8 +61,7 @@ const ImageUpload = () => {
       console.error(`not an image, the image file is a ${typeof imgAsFile}`);
       return <p>`not an image, the image file is a ${typeof imgAsFile}`</p>;
     }
-    const uploadTask = () =>
-      storage.ref(`/images/${imgAsFile.name}`).put(imgAsFile);
+    const uploadTask = storage.ref(`/images/${imgAsFile.name}`).put(imgAsFile);
     // initiates upload to cloudserver ie firebase
     uploadTask.on(
       firebase.storage.TaskEvent.STATE_CHANGED,
@@ -77,7 +77,7 @@ const ImageUpload = () => {
           <Col>
             <Form onSubmit={handleCloudUpload}>
               <Form.Group role="form">
-                <ProgressBar animated now={progress} max="100" />
+                <ProgressBar value={progress} now={progress} max="100" />
                 <Form.File
                   id="exampleFormControlFile1"
                   onChange={handleImgAsFile}
@@ -87,6 +87,15 @@ const ImageUpload = () => {
                 </Button>
               </Form.Group>
             </Form>
+            <div>
+              <Alert variant="success">
+                Uploaded image url:
+                <Alert.Link href={imgAsUrl.imgUrl}>
+                  {" "}
+                  {imgAsUrl.imgUrl}
+                </Alert.Link>
+              </Alert>
+            </div>
             <div className="image-preview">
               <p>Preview</p>
               <Image
