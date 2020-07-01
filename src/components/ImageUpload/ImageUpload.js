@@ -1,6 +1,9 @@
 import React, { useState, Fragment } from "react";
+//firebase
 import firebase from "firebase";
 import { storage } from "../firebase/index";
+
+// react-bootstrap imports
 import Form from "react-bootstrap/form";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Image from "react-bootstrap/Image";
@@ -10,9 +13,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 
+// self component CSS
 import "../ImageUpload/ImageUpload.css";
 
-const ImageUpload = () => {
+const ImageUpload = (props) => {
   const initImgState = { imgUrl: "" };
   const [imgAsFile, setImgAsFile] = useState("");
   const [imgAsUrl, setImgAsUrl] = useState(initImgState);
@@ -23,6 +27,11 @@ const ImageUpload = () => {
     const image = e.target.files[0];
     setImgAsFile((imgAsFile) => image);
   };
+
+  /*
+   *next(), error() and complete() methods will passed into uploadTask.on().
+   *Doing it this way, to avoid clutter inside uploadTask.on()
+   */
 
   const next = (snapShot) => {
     // takes the snapShot of each step of the process
@@ -101,11 +110,8 @@ const ImageUpload = () => {
               </Alert>
             </div>
             <div className="image-preview">
-              <p>Preview</p>
-              <Image
-                src={imgAsUrl.imgUrl || "http://via.placeholder.com/1024x1024"}
-                fluid
-              />
+              <p>Upload image preview:</p>
+              <Image src={imgAsUrl.imgUrl} fluid />
             </div>
           </Col>
         </Row>
